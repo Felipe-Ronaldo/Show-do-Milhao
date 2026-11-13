@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Milhão Estelar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Nunito:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Fundo 3D (Three.js) desenhado em cena3d.js -->
+  <canvas id="cena3d" aria-hidden="true"></canvas>
+  <main>
+    <!-- TELA 1: início -->
+    <section id="tela-inicio" class="tela ativa">
+      <h1>Milhão<br>Estelar</h1>
+      <p class="sub">15 perguntas de ciência e natureza. Cada acerto leva sua nave mais longe, até o prêmio de R$ 1.000.000.</p>
+      <button id="btn-iniciar" class="btn-ouro">Decolar</button>
+      <p id="msg-erro" class="erro" role="alert"></p>
+    </section>
+
+    <!-- TELA 2: jogo -->
+    <section id="tela-jogo" class="tela">
+      <header class="topo">
+        <div>
+          <span class="rotulo">Pergunta</span>
+          <strong id="num-pergunta">1 de 15</strong>
+        </div>
+        <div>
+          <span class="rotulo">Dificuldade</span>
+          <strong id="dificuldade">fácil</strong>
+        </div>
+        <div>
+          <span class="rotulo">Você já tem</span>
+          <strong id="premio-atual">R$ 0</strong>
+        </div>
+      </header>
+
+      <div class="painel">
+        <h2 id="pergunta">...</h2>
+        <div id="alternativas" class="alternativas"></div>
+        <p id="feedback" class="feedback" aria-live="polite"></p>
+        <div class="acoes">
+          <button id="btn-5050" class="btn-sec">Eliminar 2 (50:50)</button>
+          <button id="btn-parar" class="btn-sec">Parar e levar o prêmio</button>
+          <button id="btn-proxima" class="btn-ouro" hidden>Próxima pergunta</button>
+        </div>
+      </div>
+
+      <ol id="escada" class="escada" aria-label="Escada de prêmios"></ol>
+    </section>
+
+    <!-- TELA 3: resultado -->
+    <section id="tela-fim" class="tela">
+      <h2 id="fim-titulo">Fim de jogo</h2>
+      <p id="fim-premio" class="premio-final">R$ 0</p>
+      <p id="fim-texto" class="sub"></p>
+      <button id="btn-reiniciar" class="btn-ouro">Jogar de novo</button>
+    </section>
+  </main>
+  <!-- Three.js (biblioteca 3D) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="cena3d.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
